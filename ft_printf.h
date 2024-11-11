@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 12:46:56 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 13:25:48 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 #include "libft.h"
+#include <stdarg.h>
 
 int	ft_printf(const char *, ...);
 
@@ -39,8 +40,9 @@ void	delete_el(void *pointer);
 t_list	*create_param_list(const char *str);
 // size_t	conversions_amount(t_list *list);
 
-void	ft_printchar_count(char c, int *counter);
+void	ft_printchar_count(int c, int *counter);
 void	ft_printstr(const char *str, size_t start, size_t end, int *counter);
-
+void	ft_print_param(t_param *param, va_list args, int *counter);
+void	ft_print_i(int n, int *counter);
 
 #endif

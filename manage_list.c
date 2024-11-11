@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:27:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 12:46:49 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 13:13:08 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	is_valid_conversion(char c)
 	{
 		if ("cspdiuxX%"[i] == c)
 			return (1);
+		i++;
 	}
 	return (0);
 }
@@ -39,7 +40,7 @@ t_list	*create_param_list(const char *str)
 	{
 		if (str[i] == '%' && is_valid_conversion(str[i + 1]))
 		{
-			element = create_el(str, str[i], str[i + 1]);
+			element = create_el(str, i, i + 1);
 			if (!element)
 			{
 				ft_lstclear(&list, delete_el);

@@ -6,11 +6,10 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:37:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 12:46:24 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 13:08:33 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include "ft_printf.h"
 
 /*
@@ -34,6 +33,24 @@ Faudra faire quelques test sur qu'est ce qui disparait apres le %, est ce que c'
 
 */
 
+
+void	ft_print_all(const char *str, int *counter, t_list *conversions, va_list args)
+{
+	size_t	pos;
+	t_param	*temp_param;
+
+	pos = 0;
+	while (conversions)
+	{
+		temp_param = conversions->content;
+		ft_printstr(str, pos, temp_param->start -1, counter);
+		ft_print_param(temp_param, args, counter);
+		conversions = conversions->next;
+		pos = temp_param->end + 1;
+	}
+	ft_printstr(str, pos, ft_strlen(str), counter);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	t_list	*conversions;
@@ -43,21 +60,8 @@ int	ft_printf(const char *str, ...)
 	char_counter = 0;
 	conversions = create_param_list(str);
 	va_start(args, str);
-	
-
+	ft_print_all(str, &char_counter, conversions, args);
 	va_end(args);
 	ft_lstclear(&conversions, delete_el);
 	return (char_counter);
-}
-
-void	ft_printall(const char *str, int *counter, t_list *conversions, va_list args)
-{
-	size_t	pos;
-
-	pos = 0;
-	while (conversions)
-	{
-		
-	}
-	ft_printstr(str, pos, ft_strlen(str), counter);
 }
