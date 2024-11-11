@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:19:26 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 13:53:46 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 14:07:54 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	ft_print_param(t_param *param, va_list args, int *counter)
 	else if (param->type == 'p')
 		ft_print_p(va_arg(args, void*), counter);
 	else if (param->type == 'd')
-		ft_print_d(va_arg(args, int), counter);
+		ft_print_d(va_arg(args, double), counter);
 	else if (param->type == 'i')
 		ft_print_i(va_arg(args, int), counter);
 	else if (param->type == 'u')
-		ft_print_u(va_arg(args, int), counter);
+		ft_print_u(va_arg(args, unsigned int), counter);
 	else if (param->type == 'x')
 		ft_print_x_lc(va_arg(args, int), counter);
 	else if (param->type == 'X')
