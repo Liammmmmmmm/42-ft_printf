@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:37:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/10 17:30:37 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 12:05:57 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 /*
 Idée de comment gere le truc
 
-avoir une structure contenant le type de conversion, l'index de depart (index premier %) et d'arrivee (symbole de conversion) (et au cas ou je suis tenté par les bonus, je peux juste ajouter des elements a la struct)
-on fait une liste chainee de chaque truc qu'on trouve (on stoque n'importe quel printable char derriere le %)
-faire en suite une fonction de lstsize speciale pour pas compter les %% et tous les char qu'ont r a faire la
-recuper les arg grace a la size calculee
-faire un putstr special dans lequel je peux mettre ma string et le nombre max de truc a copier et a chaque fois on print de l'index actuel jusqu'a l'index stoque du premier pourcent, et qui reprend a l'index de fin de la meme liste apres avoir print l'element.
-tout clear bien et hop
+✓ avoir une structure contenant le type de conversion, l'index de depart (index premier %) et d'arrivee (symbole de conversion) (et au cas ou je suis tenté par les bonus, je peux juste ajouter des elements a la struct)
+✓ on fait une liste chainee de chaque truc qu'on trouve (on stoque n'importe quel valid char derriere le %)
+✓ faire en suite une fonction de lstsize speciale pour pas compter les %% et tous les char qu'ont r a faire la
+✗ recuper les arg grace a la size calculee
+✗ faire un putstr special dans lequel je peux mettre ma string et le nombre max de truc a copier et a chaque fois on print de l'index actuel jusqu'a l'index stoque du premier pourcent, et qui reprend a l'index de fin de la meme liste apres avoir print l'element.
+✗ tout clear bien et hop
 
 example : ft_printf("ceci est %s bien sympathique", "un test");
 print(str, index depart (0), index fin : premier % -1 (ici 8))					// output : ceci est $
