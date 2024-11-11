@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:27:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 13:13:08 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 13:56:11 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_list	*create_param_list(const char *str)
 	size_t	i;
 	
 	list = NULL;
+	temp = NULL;
 	i = 0;
 	while (str[i])
 	{

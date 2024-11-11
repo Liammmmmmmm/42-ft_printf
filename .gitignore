@@ -1,0 +1,14 @@
+.gitignore
+.vscode
+
+*.o
+a.out
+.bonus
+libft.a
+test.c
+.DS_Store
+
+thoughts.txt
+
+libft-war-machine
+libftTester

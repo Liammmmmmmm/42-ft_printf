@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 13:25:48 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 13:46:29 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ t_list	*create_param_list(const char *str);
 void	ft_printchar_count(int c, int *counter);
 void	ft_printstr(const char *str, size_t start, size_t end, int *counter);
 void	ft_print_param(t_param *param, va_list args, int *counter);
+
+void	ft_print_s(const char *str, int *counter);
+void	ft_print_p(void *p, int *counter);
+void	ft_print_d(double n, int *counter);
 void	ft_print_i(int n, int *counter);
+void	ft_print_u(unsigned int n, int *counter);
+void	ft_print_x_lc(int n, int *counter);
+void	ft_print_x_uc(int n, int *counter);
 
 #endif
