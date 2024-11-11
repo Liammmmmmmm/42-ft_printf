@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 11:40:26 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 12:46:56 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,12 @@ typedef struct s_param
 
 t_param	*create_el(const char *str, size_t start, size_t end);
 void	delete_el(void *pointer);
+
+t_list	*create_param_list(const char *str);
+// size_t	conversions_amount(t_list *list);
+
+void	ft_printchar_count(char c, int *counter);
+void	ft_printstr(const char *str, size_t start, size_t end, int *counter);
+
 
 #endif

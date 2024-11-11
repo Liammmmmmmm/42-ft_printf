@@ -6,14 +6,14 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 16:12:44 by lilefebv          #+#    #+#              #
-#    Updated: 2024/11/10 16:37:38 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/11/11 12:33:13 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS      = -Wall -Wextra -Werror
 CC         = cc
 NAME       = libftprintf.a
-LISTC      = ft_printf.c
+LISTC      = ft_printf.c manage_element.c manage_list.c printing/ft_print.c
 LISTO      = $(LISTC:.c=.o)
 HEADER     = ft_printf.h
 

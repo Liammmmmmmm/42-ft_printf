@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:27:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 12:03:23 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 12:46:49 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ t_list	*create_param_list(const char *str)
 			element = create_el(str, str[i], str[i + 1]);
 			if (!element)
 			{
-				ft_lstclear(list, delete_el);
+				ft_lstclear(&list, delete_el);
 				return (NULL);
 			}
 			node = ft_lstnew(element);
 			if (!node)
 			{
-				ft_lstclear(list, delete_el);
+				ft_lstclear(&list, delete_el);
 				return (NULL);
 			}
 			if (!list)
@@ -70,18 +70,18 @@ t_list	*create_param_list(const char *str)
 	return (list);
 }
 
-size_t	conversions_amount(t_list *list)
-{
-	size_t	size;
-	t_param *temp;
+// size_t	conversions_amount(t_list *list)
+// {
+// 	size_t	size;
+// 	t_param *temp;
 
-	size = 0;
-	while (list != NULL)
-	{
-		temp = list->content;
-		if (temp->type != '%')
-			size++;
-		list = list->next;
-	}
-	return (size);
-}
+// 	size = 0;
+// 	while (list != NULL)
+// 	{
+// 		temp = list->content;
+// 		if (temp->type != '%')
+// 			size++;
+// 		list = list->next;
+// 	}
+// 	return (size);
+// }
