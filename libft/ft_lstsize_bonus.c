@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/08 15:22:23 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/08 16:20:53 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_print_p(void *p, int *counter)
+int	ft_lstsize(t_list *lst)
 {
-	(void)p;
-	(void)counter;
-}
+	int	size;
 
-void	ft_print_s(const char *str, int *counter)
-{
-	size_t	i;
-	
-	i = 0;
-	while (str[i])
+	size = 0;
+	while (lst != NULL)
 	{
-		ft_printchar_count(str[i], counter);
-		i++;
+		size++;
+		lst = lst->next;
 	}
+	return (size);
 }

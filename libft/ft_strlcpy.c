@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/05 15:00:56 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/09 14:13:00 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_print_p(void *p, int *counter)
-{
-	(void)p;
-	(void)counter;
-}
-
-void	ft_print_s(const char *str, int *counter)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-	
+	size_t	res;
+
 	i = 0;
-	while (str[i])
+	res = 0;
+	while (src[res])
+		res++;
+	if (size == 0)
+		return (res);
+	while (src[i] && i < (size - 1))
 	{
-		ft_printchar_count(str[i], counter);
+		dest[i] = src[i];
 		i++;
 	}
+	if (size > 0)
+		dest[i] = '\0';
+	return (res);
 }

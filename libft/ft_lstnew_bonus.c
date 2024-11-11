@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/08 12:44:05 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/08 14:48:17 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_print_p(void *p, int *counter)
+t_list	*ft_lstnew(void *content)
 {
-	(void)p;
-	(void)counter;
-}
+	t_list	*res;
 
-void	ft_print_s(const char *str, int *counter)
-{
-	size_t	i;
-	
-	i = 0;
-	while (str[i])
-	{
-		ft_printchar_count(str[i], counter);
-		i++;
-	}
+	res = malloc(sizeof(t_list));
+	if (!res)
+		return (NULL);
+	res->content = content;
+	res->next = NULL;
+	return (res);
 }

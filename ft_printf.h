@@ -6,14 +6,14 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 13:46:29 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 14:33:29 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "libft.h"
+#include "libft/libft.h"
 #include <stdarg.h>
 
 int	ft_printf(const char *, ...);

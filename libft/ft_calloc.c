@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/06 18:15:49 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/09 16:59:55 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include <stdlib.h>
 
-void	ft_print_p(void *p, int *counter)
+void	*ft_calloc(size_t number, size_t size)
 {
-	(void)p;
-	(void)counter;
-}
-
-void	ft_print_s(const char *str, int *counter)
-{
+	void	*buff;
+	size_t	total_size;
 	size_t	i;
-	
+
+	total_size = number * size;
+	if (size != 0 && total_size / size != number)
+		return (NULL);
+	buff = malloc(total_size);
+	if (!buff)
+		return (NULL);
 	i = 0;
-	while (str[i])
+	while (i < total_size)
 	{
-		ft_printchar_count(str[i], counter);
+		((char *)buff)[i] = 0;
 		i++;
 	}
+	return (buff);
 }

@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/06 18:29:48 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/10 15:12:39 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_print_p(void *p, int *counter)
+char	*ft_strdup(const char *str)
 {
-	(void)p;
-	(void)counter;
-}
+	size_t	len;
+	char	*res;
 
-void	ft_print_s(const char *str, int *counter)
-{
-	size_t	i;
-	
-	i = 0;
-	while (str[i])
-	{
-		ft_printchar_count(str[i], counter);
-		i++;
-	}
+	len = ft_strlen(str);
+	res = malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (NULL);
+	ft_strlcpy(res, str, len + 1);
+	return (res);
 }

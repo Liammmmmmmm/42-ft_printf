@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/08 16:28:25 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/08 17:01:31 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_print_p(void *p, int *counter)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	(void)p;
-	(void)counter;
-}
+	t_list	*last;
 
-void	ft_print_s(const char *str, int *counter)
-{
-	size_t	i;
-	
-	i = 0;
-	while (str[i])
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		ft_printchar_count(str[i], counter);
-		i++;
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
 }

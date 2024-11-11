@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/08 10:48:30 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/10 15:13:36 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_print_p(void *p, int *counter)
-{
-	(void)p;
-	(void)counter;
-}
-
-void	ft_print_s(const char *str, int *counter)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
-	
+	char	*new_str;
+
+	new_str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!new_str)
+		return (NULL);
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		ft_printchar_count(str[i], counter);
+		new_str[i] = f(i, s[i]);
 		i++;
 	}
+	new_str[i] = 0;
+	return (new_str);
 }

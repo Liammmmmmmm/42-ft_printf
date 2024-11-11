@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/08 11:50:39 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/10 15:03:35 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include <unistd.h>
 
-void	ft_print_p(void *p, int *counter)
+void	ft_putnbr_fd(int n, int fd)
 {
-	(void)p;
-	(void)counter;
-}
-
-void	ft_print_s(const char *str, int *counter)
-{
-	size_t	i;
-	
-	i = 0;
-	while (str[i])
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		ft_printchar_count(str[i], counter);
-		i++;
+		n = -n;
+		write(fd, "-", 1);
+	}
+	if (n <= 9)
+		write(fd, &"0123456789"[n], 1);
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		write(fd, &"0123456789"[n % 10], 1);
 	}
 }

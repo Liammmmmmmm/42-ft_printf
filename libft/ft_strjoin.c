@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_others.c                                  :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:23:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/07 10:00:27 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/08 12:29:35 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_print_p(void *p, int *counter)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	(void)p;
-	(void)counter;
-}
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*new_str;
 
-void	ft_print_s(const char *str, int *counter)
-{
-	size_t	i;
-	
-	i = 0;
-	while (str[i])
-	{
-		ft_printchar_count(str[i], counter);
-		i++;
-	}
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	new_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (!new_str)
+		return (NULL);
+	ft_strlcpy(new_str, s1, s1_len + 1);
+	ft_strlcat(new_str, s2, s1_len + s2_len + 1);
+	return (new_str);
 }

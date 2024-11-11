@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:20:09 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:14:17 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/11 14:22:42 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	ft_print_i(int n, int *counter)
 
 void	ft_print_d(double n, int *counter)
 {
-	
+	(void)n;
+	(void)counter;
 }
 
 void	ft_print_u(unsigned int n, int *counter)
