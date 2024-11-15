@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:27:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 13:56:11 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 12:00:41 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,3 @@ t_list	*create_param_list(const char *str)
 	}
 	return (list);
 }
-
-// size_t	conversions_amount(t_list *list)
-// {
-// 	size_t	size;
-// 	t_param *temp;
-
-// 	size = 0;
-// 	while (list != NULL)
-// 	{
-// 		temp = list->content;
-// 		if (temp->type != '%')
-// 			size++;
-// 		list = list->next;
-// 	}
-// 	return (size);
-// }

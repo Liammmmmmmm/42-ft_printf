@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:20:09 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 14:22:42 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 16:21:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_print_i(int n, int *counter)
 {
 	if (n == -2147483648)
-		ft_printstr("-2147483648", 0, 11, counter);
+		return ft_printstr("-2147483648", 0, 11, counter);
 	else if (n < 0)
 	{
 		n = -n;
@@ -48,15 +48,9 @@ void	ft_print_u(unsigned int n, int *counter)
 }
 
 
-void	ft_print_x_lc(int n, int *counter)
+void	ft_print_x_lc(unsigned int n, int *counter)
 {
-	if (n == -2147483648)
-		ft_printstr("-80000000", 0, 9, counter);
-	else if (n < 0)
-	{
-		n = -n;
-		ft_printchar_count('-', counter);
-	}
+	
 	if (n <= 15)
 		ft_printchar_count("0123456789abcdef"[n], counter);
 	else
@@ -66,15 +60,8 @@ void	ft_print_x_lc(int n, int *counter)
 	}
 }
 
-void	ft_print_x_uc(int n, int *counter)
+void	ft_print_x_uc(unsigned int n, int *counter)
 {
-	if (n == -2147483648)
-		ft_printstr("-80000000", 0, 9, counter);
-	else if (n < 0)
-	{
-		n = -n;
-		ft_printchar_count('-', counter);
-	}
 	if (n <= 15)
 		ft_printchar_count("0123456789ABCDEF"[n], counter);
 	else

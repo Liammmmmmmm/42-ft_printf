@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:37:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/11 13:08:33 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 12:11:09 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_print_all(const char *str, int *counter, t_list *conversions, va_list ar
 	while (conversions)
 	{
 		temp_param = conversions->content;
-		ft_printstr(str, pos, temp_param->start -1, counter);
+		ft_printstr(str, pos, temp_param->start, counter);
 		ft_print_param(temp_param, args, counter);
 		conversions = conversions->next;
 		pos = temp_param->end + 1;
