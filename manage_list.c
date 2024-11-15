@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:27:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/15 12:00:41 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 16:53:56 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_list	*create_param_list(const char *str)
 				temp->next = node;
 				temp = temp->next;
 			}
+			i++;
 		}
 		i++;
 		
