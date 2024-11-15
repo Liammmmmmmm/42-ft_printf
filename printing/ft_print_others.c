@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:40:19 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/15 16:47:55 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 17:27:14 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_print_p(void *p, int *counter)
 
 	pointer_long = (unsigned long long)(size_t)p;
 	if (pointer_long == 0)
-		return ft_print_s("(nil)", counter);
+		return (ft_print_s("(nil)", counter));
 	ft_print_s("0x", counter);
 	ft_print_x_long(pointer_long, counter);
 }
@@ -38,9 +38,9 @@ void	ft_print_p(void *p, int *counter)
 void	ft_print_s(const char *str, int *counter)
 {
 	size_t	i;
-	
+
 	if (str == NULL)
-		return ft_print_s("(null)", counter);
+		return (ft_print_s("(null)", counter));
 	i = 0;
 	while (str[i])
 	{
