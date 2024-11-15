@@ -5,6 +5,7 @@
 a.out
 .bonus
 libft.a
+libftprintf.a
 test.c
 .DS_Store
 
