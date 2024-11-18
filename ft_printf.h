@@ -6,15 +6,15 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/15 18:11:15 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/18 17:22:14 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
 # include <stdarg.h>
+# include <stdlib.h>
 
 /**
  * Struct to stock a parameter for a conversions
@@ -30,6 +30,25 @@ typedef struct s_param
 	size_t	start;	/** The index of the % in the string. */
 	size_t	end;	/** The index of the last character */
 }			t_param;
+
+/**
+ * @brief Structure representing an element of a linked list.
+ *
+ * The `t_list` structure is used to represent an element in a generic 
+ * linked list. Each element contains a pointer to data of type `void*` 
+ * and a pointer to the next element in the list.
+ *
+ * @param content A pointer to the content of the list element. The type
+ *                of the content is generic (`void*`), allowing storage 
+ *                of any type of data.
+ * @param next A pointer to the next element in the list. If the current 
+ *             element is the last one, this pointer is `NULL`.
+ */
+typedef struct s_list
+{
+	void			*content;	/** List content. */
+	struct s_list	*next;		/** Pointer to the next element. */
+}					t_list;
 
 /**
  * @brief A custom implementation of printf function.
@@ -85,5 +104,42 @@ void	ft_print_i(int n, int *counter);
 void	ft_print_u(unsigned int n, int *counter);
 void	ft_print_x_lc(unsigned int n, int *counter);
 void	ft_print_x_uc(unsigned int n, int *counter);
+
+/**
+ * @brief Creates a new list element.
+ * 
+ * This function allocates memory for a new list element, sets the `content`
+ * member to the provided value, and initializes the `next` pointer to NULL.
+ * 
+ * @param content The content to initialize the new list element with.
+ * 
+ * @return A pointer to the newly created list element. NULL if memory
+ *         allocation fails.
+ */
+t_list	*ft_lstnew(void *content);
+
+/**
+ * @brief Clears the entire list by freeing all elements.
+ *
+ * Deletes and frees the memory of the element passed in parameter, and all
+ * the elements that follow, to using `del` and free(3). Finally, the initial
+ * pointer must be set to NULL
+ * 
+ * @param lst A pointer to the pointer to the first element in the list.
+ * @param del A function pointer that deletes the content of each element.
+ */
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/**
+ * @brief Calculates the length of a string.
+ *
+ * The ft_strlen() function calculates the length of the string pointed to by
+ * s, excluding the terminating null byte ('\0').
+ *
+ * @param str A pointer to the string whose length is to be calculated.
+ * 
+ * @return The number of bytes in the string pointed to by str.
+ */
+size_t	ft_strlen(const char *str);
 
 #endif
