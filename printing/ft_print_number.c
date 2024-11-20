@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:20:09 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/20 15:52:44 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/20 17:36:41 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,36 +29,16 @@ void	ft_print_i(int n, int *counter)
 		ft_printchar_count("0123456789"[n % 10], counter);
 	}
 }
-
-void	ft_print_u(unsigned int n, int *counter)
+void	ft_print_base(unsigned int n, char *base, int *counter)
 {
-	if (n <= 9)
-		ft_printchar_count("0123456789"[n], counter);
+	size_t	baselen;
+
+	baselen = ft_strlen(base);	
+	if (n <= baselen - 1)
+		ft_printchar_count(base[n], counter);
 	else
 	{
-		ft_print_i(n / 10, counter);
-		ft_printchar_count("0123456789"[n % 10], counter);
-	}
-}
-
-void	ft_print_x_lc(unsigned int n, int *counter)
-{
-	if (n <= 15)
-		ft_printchar_count("0123456789abcdef"[n], counter);
-	else
-	{
-		ft_print_x_lc(n / 16, counter);
-		ft_printchar_count("0123456789abcdef"[n % 16], counter);
-	}
-}
-
-void	ft_print_x_uc(unsigned int n, int *counter)
-{
-	if (n <= 15)
-		ft_printchar_count("0123456789ABCDEF"[n], counter);
-	else
-	{
-		ft_print_x_uc(n / 16, counter);
-		ft_printchar_count("0123456789ABCDEF"[n % 16], counter);
+		ft_print_base(n / baselen, base, counter);
+		ft_printchar_count(base[n % baselen], counter);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:19:26 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/15 17:57:27 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/20 17:32:11 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	ft_print_param(t_param *param, va_list args, int *counter)
 	else if (param->type == 'i' || param->type == 'd')
 		ft_print_i(va_arg(args, int), counter);
 	else if (param->type == 'u')
-		ft_print_u(va_arg(args, unsigned int), counter);
+		ft_print_base(va_arg(args, unsigned int), "0123456789", counter);
 	else if (param->type == 'x')
-		ft_print_x_lc(va_arg(args, unsigned int), counter);
+		ft_print_base(va_arg(args, unsigned int), "0123456789abcdef", counter);
 	else if (param->type == 'X')
-		ft_print_x_uc(va_arg(args, unsigned int), counter);
+		ft_print_base(va_arg(args, unsigned int), "0123456789ABCDEF", counter);
 	else if (param->type == '%')
 		ft_printchar_count('%', counter);
 }

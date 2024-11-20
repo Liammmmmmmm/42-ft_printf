@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/20 16:14:30 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/20 17:32:55 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,7 @@ void	ft_print_param(t_param *param, va_list args, int *counter);
 void	ft_print_s(const char *str, int *counter);
 void	ft_print_p(void *p, int *counter);
 void	ft_print_i(int n, int *counter);
-void	ft_print_u(unsigned int n, int *counter);
-void	ft_print_x_lc(unsigned int n, int *counter);
-void	ft_print_x_uc(unsigned int n, int *counter);
+void	ft_print_base(unsigned int n, char *base, int *counter);
 
 /**
  * @brief Creates a new list element.
