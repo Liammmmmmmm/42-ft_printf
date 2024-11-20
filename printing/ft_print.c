@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:19:26 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/20 17:32:11 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/20 17:55:03 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,22 @@ void	ft_printchar_count(int c, int *counter)
 	(*counter)++;
 }
 
-void	ft_printstr(const char *str, size_t start, size_t end, int *counter)
+void	ft_print_param(char type, va_list args, int *counter)
 {
-	if (!str)
-		return ;
-	while (start < end)
-	{
-		ft_printchar_count(str[start], counter);
-		start++;
-	}
-}
-
-void	ft_print_param(t_param *param, va_list args, int *counter)
-{
-	if (param->type == 'c')
+	if (type == 'c')
 		ft_printchar_count(va_arg(args, int), counter);
-	else if (param->type == 's')
+	else if (type == 's')
 		ft_print_s(va_arg(args, char *), counter);
-	else if (param->type == 'p')
+	else if (type == 'p')
 		ft_print_p(va_arg(args, void *), counter);
-	else if (param->type == 'i' || param->type == 'd')
+	else if (type == 'i' || type == 'd')
 		ft_print_i(va_arg(args, int), counter);
-	else if (param->type == 'u')
+	else if (type == 'u')
 		ft_print_base(va_arg(args, unsigned int), "0123456789", counter);
-	else if (param->type == 'x')
+	else if (type == 'x')
 		ft_print_base(va_arg(args, unsigned int), "0123456789abcdef", counter);
-	else if (param->type == 'X')
+	else if (type == 'X')
 		ft_print_base(va_arg(args, unsigned int), "0123456789ABCDEF", counter);
-	else if (param->type == '%')
+	else if (type == '%')
 		ft_printchar_count('%', counter);
 }

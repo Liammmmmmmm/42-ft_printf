@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/20 17:32:55 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/20 17:56:55 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,6 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
-
-/**
- * Struct to stock a parameter for a conversions
- * 
- * @param type One of the possibles conversions (cspdiuxX%).
- * @param start The index of the % in the string.
- * @param end The index of the last character of the conversion, the index of
- *            cspdiuxX%.
- */
-typedef struct s_param
-{
-	char	type;	/** One of the possibles conversions (cspdiuxX%). */
-	size_t	start;	/** The index of the % in the string. */
-	size_t	end;	/** The index of the last character */
-}			t_param;
-
-/**
- * @brief Structure representing an element of a linked list.
- *
- * The `t_list` structure is used to represent an element in a generic 
- * linked list. Each element contains a pointer to data of type `void*` 
- * and a pointer to the next element in the list.
- *
- * @param content A pointer to the content of the list element. The type
- *                of the content is generic (`void*`), allowing storage 
- *                of any type of data.
- * @param next A pointer to the next element in the list. If the current 
- *             element is the last one, this pointer is `NULL`.
- */
-typedef struct s_list
-{
-	void			*content;	/** List content. */
-	struct s_list	*next;		/** Pointer to the next element. */
-}					t_list;
 
 /**
  * @brief A custom implementation of printf function.
@@ -91,41 +57,12 @@ typedef struct s_list
  */
 int		ft_printf(const char *str, ...);
 
-t_param	*create_el(const char *str, size_t start, size_t end);
-void	delete_el(void *pointer);
-t_list	*create_param_list(const char *str);
 void	ft_printchar_count(int c, int *counter);
-void	ft_printstr(const char *str, size_t start, size_t end, int *counter);
-void	ft_print_param(t_param *param, va_list args, int *counter);
+void	ft_print_param(char type, va_list args, int *counter);
 void	ft_print_s(const char *str, int *counter);
 void	ft_print_p(void *p, int *counter);
 void	ft_print_i(int n, int *counter);
 void	ft_print_base(unsigned int n, char *base, int *counter);
-
-/**
- * @brief Creates a new list element.
- * 
- * This function allocates memory for a new list element, sets the `content`
- * member to the provided value, and initializes the `next` pointer to NULL.
- * 
- * @param content The content to initialize the new list element with.
- * 
- * @return A pointer to the newly created list element. NULL if memory
- *         allocation fails.
- */
-t_list	*ft_lstnew(void *content);
-
-/**
- * @brief Clears the entire list by freeing all elements.
- *
- * Deletes and frees the memory of the element passed in parameter, and all
- * the elements that follow, to using `del` and free(3). Finally, the initial
- * pointer must be set to NULL
- * 
- * @param lst A pointer to the pointer to the first element in the list.
- * @param del A function pointer that deletes the content of each element.
- */
-void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 /**
  * @brief Calculates the length of a string.

@@ -6,40 +6,62 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:37:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/15 17:57:21 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/20 17:56:05 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_all(const char *str, int *cnt, t_list *conv, va_list args)
+size_t	ft_strlen(const char *str)
 {
-	size_t	pos;
-	t_param	*temp_param;
+	size_t	i;
 
-	pos = 0;
-	while (conv)
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	is_valid_conversion(char c)
+{
+	size_t	i;
+
+	i = 0;
+	while ("cspdiuxX%\0"[i])
 	{
-		temp_param = conv->content;
-		ft_printstr(str, pos, temp_param->start, cnt);
-		ft_print_param(temp_param, args, cnt);
-		conv = conv->next;
-		pos = temp_param->end + 1;
+		if ("cspdiuxX%"[i] == c)
+			return (1);
+		i++;
 	}
-	ft_printstr(str, pos, ft_strlen(str), cnt);
+	return (0);
+}
+
+void	ft_print_all(const char *str, int *counter, va_list args)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '%' && is_valid_conversion(str[i + 1]))
+		{
+			ft_print_param(str[i + 1], args, counter);
+			i++;
+		}
+		else
+			ft_printchar_count(str[i], counter);
+		i++;
+	}
 }
 
 int	ft_printf(const char *str, ...)
 {
-	t_list	*conversions;
 	va_list	args;
 	int		char_counter;
 
 	char_counter = 0;
-	conversions = create_param_list(str);
 	va_start(args, str);
-	ft_print_all(str, &char_counter, conversions, args);
+	ft_print_all(str, &char_counter, args);
 	va_end(args);
-	ft_lstclear(&conversions, delete_el);
 	return (char_counter);
 }
