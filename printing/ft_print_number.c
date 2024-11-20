@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:20:09 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/15 17:26:46 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/20 15:52:44 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ void	ft_print_i(int n, int *counter)
 		ft_print_i(n / 10, counter);
 		ft_printchar_count("0123456789"[n % 10], counter);
 	}
-}
-
-void	ft_print_d(double n, int *counter)
-{
-	(void)n;
-	(void)counter;
 }
 
 void	ft_print_u(unsigned int n, int *counter)

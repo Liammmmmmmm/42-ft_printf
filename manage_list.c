@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:27:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/18 17:26:32 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/20 15:48:41 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ t_list	*create_parm(t_param *element, t_list **list, t_list **temp)
 		return (clear_return(list));
 	node = ft_lstnew(element);
 	if (!node)
+	{
+		free(element);
 		return (clear_return(list));
+	}
 	if (!*list)
 		*list = node;
 	else if (!*temp)
